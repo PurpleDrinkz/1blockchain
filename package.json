@@ -3,7 +3,7 @@
   "version": "1",
   "description": "My first BlockChain",
   "main": "index.js",
-  "repository": "https://github.com/purpledrinkz/1blockchain",
+  "repository": "https://github.com/PurpleDrinkz/1blockchain.git",
   "author": "Benjamin Ortega Garcia",
   "license": "MIT",
   "private": false,
