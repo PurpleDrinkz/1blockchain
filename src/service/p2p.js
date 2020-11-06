@@ -6,25 +6,25 @@ const peers = PEERS ? PEERS.split(',') : [];
 class P2PService{
 
 
-    constructor(blockchain){
+    constructor(blockchain) {
         this.blockchain = blockchain;
-        this.socket = [];
-    }
+        this.sockets = [];
+      }
 
     listen(){
-        const server = new WebSocket.Server({port: P2P_PORT});
-        server.on('Conexion', (ssocket) => this.onConnection(socket));
+        const server = new WebSocket.Server({ port: P2P_PORT });
+        server.on('connection', (socket) => this.onConnection(socket));
 
         peers.forEach((peer) => {
-            const socket = new WebSocket(peers);
-            socket.on('Abierto', () => this.onConnection(socket));
+            const socket = new WebSocket(peer);
+            socket.on('open', () => this.onConnection(socket));
         });
 
         console.log(`Service ws:${P2P_PORT} funcionando...`)
     }
 
     onConnection(socket){
-        console.log('[ws:socket] conectado');
+        console.log('[ws:socket] Conectado.');
         this.sockets.push(socket);
 
     }
